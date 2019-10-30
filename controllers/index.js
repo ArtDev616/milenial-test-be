@@ -5,8 +5,6 @@ const request = require('request');
 const constants = require('../conf/constants');
 
 exports.test = function(req, res) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     const options = {
         url: `http://api.weatherstack.com/forecast?access_key=${process.env.WEATHER_KEY}&query=${req.body.cityName}`
     };
