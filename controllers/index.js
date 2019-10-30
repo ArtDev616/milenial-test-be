@@ -1,11 +1,13 @@
 'user strict';
 require('dotenv').config();
-var request = require('request');
+const request = require('request');
 
-var constants = require('../conf/constants');
+const constants = require('../conf/constants');
 
 exports.test = function(req, res) {
-    var options = {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    const options = {
         url: `http://api.weatherstack.com/forecast?access_key=${process.env.WEATHER_KEY}&query=${req.body.cityName}`
     };
 
